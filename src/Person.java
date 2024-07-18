@@ -1,7 +1,7 @@
 public class Person {
 	private String firstName;
 	private String lastName;
-	private int age;
+	private Integer age;
 	private String address;
 
 	public Person (PersonBuilder personBuilder){
@@ -43,14 +43,20 @@ public class Person {
 		this.address = address;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Person{" +
-				"firstName='" + firstName + '\'' +
-				", lastName='" + lastName + '\'' +
-				", age=" + age +
-				", address='" + address + '\'' +
-				'}';
+		StringBuilder res = new StringBuilder();
+		res.append("Nome: ").append(firstName).append(", ");
+		res.append("Cognome: ").append(lastName).append(", ");
+		if (age != null){
+			res.append("Età: ").append(age).append(", ");
+		}
+		if(address != null){
+			res.append("Indirizzo: ").append(address).append(" ");
+		}
+
+		return res.toString();
 	}
 
 	public static class PersonBuilder{
